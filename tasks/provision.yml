@@ -18,7 +18,7 @@
 - name: initiate the device with partition layout
   become: true
   become_user: root
-  command: sfdisk {{docker_provision_thinpool_device_name}} < {{docker_provision_thinpool_partition_layout_dest}}
+  shell: sfdisk {{docker_provision_thinpool_device_name}} < {{docker_provision_thinpool_partition_layout_dest}}
 
 - name: create logical volume group
   become: true
@@ -31,7 +31,7 @@
 - name: create the logical volume pool
   become: true
   become_user: root
-  with_items: docker_provision_thinpool_logical_volumes
+  with_items: '{{docker_provision_thinpool_logical_volumes}}'
   lvol:
     vg: '{{item.volume_group_name}}'
     lv: '{{item.logical_volume_name}}'
