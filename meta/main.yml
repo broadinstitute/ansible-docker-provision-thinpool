@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Vishal Shah
-  description: 'Creates a logical volume configured as thinpool'
+  description: Creates a thinpool logical volume
   company: BlackRock
   license:
     - MIT
@@ -12,6 +12,8 @@ galaxy_info:
         - all
 
   galaxy_tags:
+    - docker
+    - devicemapper
     - direct-lvm
     - thinpool
     - lvcreate

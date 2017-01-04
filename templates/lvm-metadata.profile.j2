@@ -1,4 +1,4 @@
 activation {
-    thin_pool_autoextend_threshold={{provision_thinpool_autoextend_threshold}}
-    thin_pool_autoextend_percent={{provision_thinpool_autoextend_percent}}
+    thin_pool_autoextend_threshold={{ provision_thinpool_autoextend_threshold | default(80) }}
+    thin_pool_autoextend_percent={{ provision_thinpool_autoextend_percent | default(20) }}
 }

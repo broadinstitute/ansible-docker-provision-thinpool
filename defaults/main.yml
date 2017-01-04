@@ -3,12 +3,12 @@
 provision_thinpool_device_name : /dev/vdc
 provision_thinpool_partition_name : /dev/vdc1
 
-provision_thinpool_partition_layout: /vdc.layout
+provision_thinpool_partition_layout: vdc.layout
 
 provision_thinpool_volume_group_name: docker
 provision_thinpool_logical_volume_name: thinpool
-provision_thinpool_logical_volume_data_size: 95%VG
-provision_thinpool_logical_volume_meta_size: 1%VG
+provision_thinpool_logical_volume_data_size: '95%VG'
+provision_thinpool_logical_volume_meta_size: '1%VG'
 
-provision_thinpool_autoextend_threshold: 80
-provision_thinpool_autoextend_percent: 20
+# provision_thinpool_autoextend_threshold: 80
+# provision_thinpool_autoextend_percent: 20
