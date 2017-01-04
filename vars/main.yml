@@ -11,3 +11,5 @@ provision_thinpool_logical_volumes:
     logical_volume_size: '{{provision_thinpool_logical_volume_meta_size}}'
 
 provision_thinpool_metadata_profile: '{{provision_thinpool_volume_group_name}}-{{provision_thinpool_logical_volume_name}}'
+
+provision_thinpool_partition_layout_dest: '{{provision_thinpool_partition_layout_dest_dir}}/{{provision_thinpool_partition_layout}}'

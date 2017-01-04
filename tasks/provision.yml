@@ -1,8 +1,24 @@
 ---
+- name: make partition layout dir
+  become: true
+  become_user: root
+  file: >-
+    path={{provision_thinpool_partition_layout_dest_dir}}
+    state=directory
+    mode=0755
+
+- name: inject partition layout...
+  become: true
+  become_user: root
+  copy: >-
+    src={{provision_thinpool_partition_layout | default('partition.layout')}}
+    dest={{provision_thinpool_partition_layout_dest}}
+    mode=0644
+
 - name: initiate the device with partition layout
   become: true
   become_user: root
-  command: sfdisk {{provision_thinpool_device_name}} < {{provision_thinpool_partition_layout}}
+  command: sfdisk {{provision_thinpool_device_name}} < {{provision_thinpool_partition_layout_dest}}
 
 - name: create logical volume group
   become: true

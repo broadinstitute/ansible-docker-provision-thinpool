@@ -1,9 +1,15 @@
 ---
 # defaults file for provision-thinpool
-provision_thinpool_device_name : /dev/vdc
-provision_thinpool_partition_name : /dev/vdc1
 
-provision_thinpool_partition_layout: vdc.layout
+# Specify device and partition to use to create thinpool logical volume
+provision_thinpool_device_name: /dev/vdc
+provision_thinpool_partition_name: /dev/vdc1
+
+provision_thinpool_partition_layout_dest_dir: /tmp/partition-layouts
+# partition.layout file is found via lookup by the copy module
+# provision_thinpool_partition_layout: partition.layout
+# For example see sample-partition.layout
+
 
 provision_thinpool_volume_group_name: docker
 provision_thinpool_logical_volume_name: thinpool
