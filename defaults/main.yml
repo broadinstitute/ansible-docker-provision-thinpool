@@ -1,24 +1,24 @@
 ---
-# defaults file for provision-thinpool
+# defaults file for docker-provision-thinpool
 
 # Specify device and partition to use to create thinpool logical volume
-provision_thinpool_device_name: /dev/vdc
-provision_thinpool_partition_name: /dev/vdc1
+docker_provision_thinpool_device_name: /dev/vdc
+docker_provision_thinpool_partition_name: /dev/vdc1
 
 # Dest directory where partition layout will be injected
-provision_thinpool_partition_layout_dest_dir: /tmp/partition-layouts
+docker_provision_thinpool_partition_layout_dest_dir: /root/partition-layouts
 
 # partition.layout file is found via lookup by the copy module
-# provision_thinpool_partition_layout: partition.layout
+# docker_provision_thinpool_partition_layout: partition.layout
 # For example see sample-partition.layout
 
-provision_thinpool_volume_group_name: docker
-provision_thinpool_logical_volume_name: thinpool
+docker_provision_thinpool_volume_group_name: docker
+docker_provision_thinpool_logical_volume_name: thinpool
 
 # provide size for the data logical volume and metadata logical volume
 # Leaving free space allows for auto exapanding of either data or metadata volume
-provision_thinpool_logical_volume_data_size: '95%VG'
-provision_thinpool_logical_volume_meta_size: '1%VG'
+docker_provision_thinpool_logical_volume_data_size: '95%VG'
+docker_provision_thinpool_logical_volume_meta_size: '1%VG'
 
-# provision_thinpool_autoextend_threshold: 80
-# provision_thinpool_autoextend_percent: 20
+# docker_provision_thinpool_autoextend_threshold: 80
+# docker_provision_thinpool_autoextend_percent: 20

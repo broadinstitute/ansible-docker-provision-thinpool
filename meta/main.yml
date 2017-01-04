@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Vishal Shah
-  description: Creates a thinpool logical volume
+  description: Creates a thinpool logical volume for docker engine
   company: BlackRock
   license:
     - MIT

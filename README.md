@@ -1,12 +1,14 @@
-spk83.provision-thinpool
-=========================
+spk83.docker-provision-thinpool
+===============================
 
 Creates a thinpool logical volume to use with devicemapper storage driver in direct-lvm mode with docker engine.
 
-To verfiy if the role executed successfully, run following command on targeted machine
+To verfiy if the role executed successfully, run following command on target machine
 ```
 lvs -o+seg_monitor
 ```
+
+Role follows instructions from [here](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/#/configure-direct-lvm-mode-for-production)
 
 Requirements
 ------------
@@ -29,7 +31,7 @@ Example Playbook
 ```yml
 - hosts: servers
   roles:
-    - spk83.provision-thinpool
+    - spk83.docker-provision-thinpool
 ```
 
 License
