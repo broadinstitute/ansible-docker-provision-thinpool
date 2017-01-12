@@ -3,12 +3,18 @@
 
 # Specify device and partition to use to create thinpool logical volume
 docker_provision_thinpool_device_name: /dev/vdc
-docker_provision_thinpool_partition_name: /dev/vdc1
+
+# Size of thinpool in gb
+docker_provision_thinpool_size_gb: 100
+# Partition offset to start with
+docker_provision_thinpool_partition_offset: 2048
+# Chunksize in logical volume
+docker_provision_thinpool_chuncksize_kb: 512
 
 # Dest directory where partition layout will be injected
 docker_provision_thinpool_partition_layout_dest_dir: /root/partition-layouts
 
-# partition.layout file is found via lookup by the copy module
+# override template and use partition.layout file that is found via lookup by the copy module
 # docker_provision_thinpool_partition_layout: partition.layout
 # For example see sample-partition.layout
 

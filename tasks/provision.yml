@@ -16,11 +16,21 @@
     state=directory
     mode=0755
 
-- name: inject partition layout...
+- name: inject partition layout if provided
+  when: docker_provision_thinpool_partition_layout is defined
   become: true
   become_user: root
   copy: >-
-    src={{docker_provision_thinpool_partition_layout | default('partition.layout')}}
+    src={{docker_provision_thinpool_partition_layout}}
+    dest={{docker_provision_thinpool_partition_layout_dest}}
+    mode=0644
+
+- name: inject partition layout based on template
+  when: docker_provision_thinpool_partition_layout is not defined
+  become: true
+  become_user: root
+  template: >
+    src=docker.layout.j2
     dest={{docker_provision_thinpool_partition_layout_dest}}
     mode=0644
 
@@ -51,7 +61,7 @@
   become: true
   become_user: root
   command: >-
-    lvconvert -y --zero n -c 512K 
+    lvconvert -y --zero n -c {{docker_provision_thinpool_chuncksize_kb}}K
       --thinpool {{docker_provision_thinpool_volume_group_name}}/{{docker_provision_thinpool_logical_volume_name}}
       --poolmetadata {{docker_provision_thinpool_volume_group_name}}/{{docker_provision_thinpool_logical_volume_meta}}
 
