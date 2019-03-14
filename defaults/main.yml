@@ -28,3 +28,5 @@ docker_provision_thinpool_logical_volume_meta_size: '1%VG'
 
 # docker_provision_thinpool_autoextend_threshold: 80
 # docker_provision_thinpool_autoextend_percent: 20
+
+lv_path: /dev/mapper/vg_docker-docker--pool
